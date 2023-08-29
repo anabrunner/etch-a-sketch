@@ -1,0 +1,12 @@
+/* CSS for Etch-a-Sketch */
+
+#sketchGrid {
+  display: grid;
+  width: 800px;
+  height: 800px;
+  border: 1px solid black;
+}
+
+#sketchGrid > div {
+  border: 1px solid black;
+}
