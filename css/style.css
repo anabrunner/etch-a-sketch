@@ -8,5 +8,38 @@
 }
 
 #sketchGrid > div {
-  border: 1px solid black;
+  /* This avoids double borders which look very thick. */
+  border-left: 1px dashed lightgray;
+  border-bottom: 1px dashed lightgray;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 15px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: black;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: black;
+  cursor: pointer;
 }
