@@ -43,3 +43,8 @@
   background: black;
   cursor: pointer;
 }
+
+footer img:hover {
+  transform: rotate(360deg);
+  transition: 1s;
+}

@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <title>Etch-a-Sketch</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon.svg">
   <script src="script.js" defer></script>
 </head>
 
@@ -13,13 +14,20 @@
   <header>Etch-a-Sketch</header>
 
   <main>
+    <div class="buttons">
+      <button id="classic">Classic Mode</button>
+      <button id="rainbow">RAINBOW Mode</button>
+      <button id="eraser">Eraser</button>
+      <button id="clear">Clear</button>
+    </div>
+    
     <div class="sliderContainer">
-      <p>Grid size</p>
-      <input type="range" min="10" max="100" value="16" class="slider" id="gridSize">
+      <p>Grid size: <span id="gridValue">16 x 16</span></p>
+      <input type="range" min="16" max="64" value="16" class="slider" id="gridSize">
     </div>
     <div id="sketchGrid"></div>
   </main>
 
-  <footer>anabrunner</footer>
+  <footer><a href="https://github.com/anabrunner" target="_blank">anabrunner&nbsp;<img src="img/github-mark.png" alt="GitHub logo"></a></footer>
 </body>
 </html>

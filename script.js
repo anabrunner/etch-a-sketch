@@ -1,6 +1,7 @@
 // JavaScript for Etch-a-Sketch
 
 const slider = document.getElementById("gridSize");
+const sliderValue = document.getElementById("gridValue");
 const sketchGrid = document.getElementById('sketchGrid');
 
 const DEFAULT_GRID = 16;
@@ -18,6 +19,7 @@ document.body.onmouseup = () => (mouseDown = false);
 function newGrid(e) {
   sketchGrid.innerHTML = "";
   let n = this.value;
+  sliderValue.textContent = `${n} x ${n}`
   makeDivs(n);
 }
 // Create a grid of square divs that is n x n.
