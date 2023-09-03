@@ -1,23 +1,40 @@
 // JavaScript for Etch-a-Sketch
 
-const slider = document.getElementById("gridSize");
-const sliderValue = document.getElementById("gridValue");
+// Gets elements on DOM.
+const slider = document.getElementById('gridSize');
+const sliderValue = document.getElementById('gridValue');
 const sketchGrid = document.getElementById('sketchGrid');
+const classicButton = document.getElementById('classic');
+const rainbowButton = document.getElementById('rainbow');
+const clearButton = document.getElementById('clear');
 
+// Sets the starting default values upon loading the page.
 const DEFAULT_GRID = 16;
 makeDivs(DEFAULT_GRID);
 
 // Determines the grid size using the slider.
-slider.addEventListener("input", newGrid);
+slider.addEventListener('input', newGrid);
 
 // Keeps track of whether the mouse is pressed down or not.
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
+// Adds event listeners to each button. Removes active class from buttons, adds active class to button clicked.
+const buttons = document.querySelectorAll('.buttons button');
+buttons.forEach((button) => {
+  button.addEventListener('click', (e) => {
+    buttons.forEach(f => f.classList.remove('active'));
+    e.target.classList.toggle('active');
+  });
+});
+
+// Adds event listener to clear button, calls function to clear grid.
+clearButton.addEventListener('click', clearGrid);
+
 // Clears the grid of the previous divs, then calls function to make new divs.
 function newGrid(e) {
-  sketchGrid.innerHTML = "";
+  sketchGrid.innerHTML = '';
   let n = this.value;
   sliderValue.textContent = `${n} x ${n}`
   makeDivs(n);
@@ -38,9 +55,9 @@ function makeGrid(n, sketchGrid) {
 }
 // Selects the divs in the Sketch Grid container.
 function selectDivs() {
-  const divs = document.querySelectorAll("#sketchGrid div");
+  const divs = document.querySelectorAll('#sketchGrid div');
   divs.forEach((div) => {
-    div.addEventListener("mouseover", fillColor);
+    div.addEventListener('mouseover', fillColor);
   });
 }
 
@@ -48,6 +65,21 @@ function selectDivs() {
 function fillColor(e) {
   let div = this;
   if (mouseDown) {
-    div.style.backgroundColor = "black";
+    if (classicButton.classList.contains('active')) {
+      div.style.backgroundColor = 'black';
+    } else if (rainbowButton.classList.contains('active')) {
+      let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+      div.style.backgroundColor = '#' + randomColor;
+    } else {
+      div.style.backgroundColor = 'white';
+    }
   }
+}
+
+// Clears grid.
+function clearGrid() {
+  const divs = document.querySelectorAll('#sketchGrid div');
+  divs.forEach((div) => {
+    div.style.backgroundColor = 'white';
+  });
 }
