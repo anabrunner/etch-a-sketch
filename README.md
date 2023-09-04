@@ -4,6 +4,6 @@ This is the desktop browser version of an Etch a Sketch toy. The user can select
 
 The purpose of this project was to practice using JavaScript to create and manipulate elements in the DOM.
 
-[Live Website] (https://anabrunner.github.io/etch-a-sketch)
+[Live Website] (https://anabrunner.github.io/etch-a-sketch/)
 
 ![Screenshot of the page.](/screenshot.png)
